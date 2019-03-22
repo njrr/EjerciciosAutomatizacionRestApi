@@ -1,0 +1,37 @@
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.8.3")
+    }
+}
+
+apply plugin: 'java'
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding="UTF-8"
+apply plugin: 'eclipse'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'net.serenity-bdd:serenity-core:1.9.36'
+    compile 'net.serenity-bdd:serenity-junit:1.9.36'    
+    compile 'net.serenity-bdd:serenity-screenplay:1.1.36'
+    compile 'net.serenity-bdd:serenity-screenplay-webdriver:1.9.36'
+    compile 'net.serenity-bdd:serenity-rest-assured:1.1.42'
+    testCompile 'junit:junit:4.12'
+    testCompile 'net.serenity-bdd:serenity-cucumber:1.9.15'
+    testCompile 'org.assertj:assertj-core:3.11.0'
+    testCompile 'org.slf4j:slf4j-simple:1.7.25' 
+    testCompile 'io.rest-assured:rest-assured:3.0.0'  
+}
+gradle.startParameter.continueOnFailure = true
